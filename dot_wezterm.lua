@@ -2,19 +2,22 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- emulate tmux
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
 	-- splitting
 	{ mods = "LEADER", key = "-", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "/", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ mods = "LEADER", key = "LeftArrow", action = wezterm.action.ActivatePaneDirection("Left") },
+	-- vim mappings
 	{ mods = "LEADER", key = "h", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ mods = "LEADER", key = "RightArrow", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ mods = "LEADER", key = "UpArrow", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ mods = "LEADER", key = "k", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ mods = "LEADER", key = "DownArrow", action = wezterm.action.ActivatePaneDirection("Down") },
 	{ mods = "LEADER", key = "j", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ mods = "LEADER", key = "k", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
+	-- arrow keys
+	{ mods = "LEADER", key = "LeftArrow", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ mods = "LEADER", key = "RightArrow", action = wezterm.action.ActivatePaneDirection("Right") },
+	{ mods = "LEADER", key = "DownArrow", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ mods = "LEADER", key = "UpArrow", action = wezterm.action.ActivatePaneDirection("Up") },
+	-- relative motions
 	{ mods = "LEADER", key = "p", action = wezterm.action.ActivateTabRelative(-1) },
 	{ mods = "LEADER", key = "n", action = wezterm.action.ActivateTabRelative(1) },
 	{ mods = "LEADER", key = "x", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
