@@ -41,16 +41,24 @@ for i = 1, 9 do
 	})
 end
 
-config.color_scheme = "GruvboxDarkHard"
+--config.color_scheme = "GruvboxDarkHard"
+--config.color_scheme = "Rosé Pine (Gogh)"
+--config.color_scheme = "Monokai Pro (Gogh)"
+config.color_scheme = "Catppuccin Mocha"
+
 config.font = wezterm.font_with_fallback({
+	"Operator Mono Book",
+	--"IosevkaTerm Nerd Font Mono",
+	"Hack Nerd Font Mono",
+	"FiraCode Nerd Font Mono",
 	"CaskaydiaCove Nerd Font Mono",
 	"MesloLGS Nerd Font Mono",
 	"JetBrains Mono",
 })
+
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 180
 config.initial_rows = 45
---config.line_height = 1.2
 config.use_fancy_tab_bar = false
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
@@ -62,7 +70,8 @@ local is_windows <const> = wezterm.target_triple:find("windows") ~= nil
 
 -- MacOS Specific
 if is_macos then
-	config.font_size = 16
+	config.font_size = 18
+	config.line_height = 1.2
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 	config.window_padding = {
 		top = "1.5cell",
