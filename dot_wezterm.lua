@@ -41,17 +41,16 @@ for i = 1, 9 do
 	})
 end
 
-config.color_scheme = "GruvboxDarkHard"
---config.color_scheme = "Rosé Pine Moon (Gogh)"
+--config.color_scheme = "GruvboxDarkHard"
+config.color_scheme = "Rosé Pine Moon (Gogh)"
 --config.color_scheme = "Rosé Pine Dawn (Gogh)"
 --config.color_scheme = "Monokai Pro (Gogh)"
-config.color_scheme = "Catppuccin Mocha"
+--config.color_scheme = "Catppuccin Mocha"
 --config.color_scheme = "Everforest Dark Medium (Gogh)"
 
 config.font = wezterm.font_with_fallback({
 	--"MesloLGM Nerd Font Mono",
 	"Operator Mono Book",
-	--"IosevkaTerm Nerd Font Mono",
 	"Hack Nerd Font Mono",
 	"FiraCode Nerd Font Mono",
 	"CaskaydiaCove Nerd Font Mono",
