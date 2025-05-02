@@ -1,4 +1,8 @@
-export PATH=$PATH:/opt/homebrew/bin
+export PATH=/opt/homebrew/bin:$PATH
+
+# Setup fzf binds & fuzzy completion
+source <(fzf --zsh)
+export JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION=1
 
 # homebrew completions
 if type brew &>/dev/null
