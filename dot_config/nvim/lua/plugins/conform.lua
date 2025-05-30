@@ -5,16 +5,23 @@ return {
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				"<leader>cF",
+				"<leader>cf",
 				function()
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
-				mode = "",
-				desc = "[F]ormat buffer(conform)",
+				mode = "n",
+				desc = "Format",
 			},
+			-- {
+			-- 	"<leader>cF",
+			-- 	function()
+			-- 		vim.lsp.buf.format()
+			-- 	end,
+			-- 	desc = "Format (LSP)",
+			-- },
 		},
 		opts = {
-			notify_on_error = false,
+			-- notify_on_error = false,
 			format_on_save = function(bufnr)
 				-- Disable "format_on_save lsp_fallback" for languages that don't
 				-- have a well standardized coding style. You can add additional
@@ -31,12 +38,8 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "ruff" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+				-- python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			},
 		},
 	},
 }
--- vim: ts=2 sts=2 sw=2 et
