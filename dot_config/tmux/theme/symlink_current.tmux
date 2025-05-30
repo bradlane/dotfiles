@@ -1,1 +1,1 @@
-/Users/blane/.config/tmux/theme/tokyonight_moon.tmux
+/Users/blane/.config/tmux/theme/duskfox.tmux
