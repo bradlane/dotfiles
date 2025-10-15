@@ -19,3 +19,8 @@ alias lg=lazygit
 alias toolbox="docker run -it --rm -w/code/ -v ~/Code:/code --dns=10.0.10.252 --dns=10.0.10.253 docker.paylocity.com/paylocity/refreshing-toolbox:latest /bin/bash"
 eval "$(starship init zsh)"
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/blane/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
