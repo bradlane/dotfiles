@@ -14,6 +14,8 @@ then
 fi
 
 alias ls=eza
-
+alias cat=bat
+alias lg=lazygit
+alias toolbox="docker run -it --rm -w/code/ -v ~/Code:/code --dns=10.0.10.252 --dns=10.0.10.253 docker.paylocity.com/paylocity/refreshing-toolbox:latest /bin/bash"
 eval "$(starship init zsh)"
 

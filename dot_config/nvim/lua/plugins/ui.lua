@@ -27,49 +27,71 @@ return {
       },
     },
   },
-
   -- Colorschemes
   -- Change default colorschme by setting 'lazy = false' (should only be set on one)
+  -- { "catppuccin/nvim", lazy = true, name = "catppuccin", priority = 1000 },
+  -- {
+  --   "neanias/everforest-nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("everforest").setup({
+  --       background = 'soft',
+  --       italics = true,
+  --       ui_contrast = 'high',
+  --
+  --     })
+  --     vim.o.background = "light"
+  --   end,
+  -- },
   {
     "sainnhe/everforest",
     priority = 1000,
-    lazy = true,
+    lazy = false,
     config = function()
-      vim.o.background = "light"
-      vim.g.everforest_background = "hard"
+      -- vim.o.background = "light"
+      -- vim.g.everforest_background = "soft"
+      vim.g.everforest_background = "medium"
       vim.g.everforest_enable_italic = 1
       vim.g.everforest_disable_italic_comment = 1
       vim.g.everforest_dim_inactive_windows = 1
-      vim.g.everforest_ui_contrast = "high"
+      --vim.g.everforest_ui_contrast = "high"
       vim.cmd.colorscheme("everforest")
       vim.cmd.hi("Comment gui=none")
     end,
   },
-  {
-    "forest-nvim/sequoia.nvim",
-    priority = 1000,
-    lazy = true,
-    config = function()
-      vim.cmd("colorscheme sequoia") -- or 'sequoia-night' / 'sequoia-rise'
-    end,
-  },
-  {
-    "EdenEast/nightfox.nvim",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      vim.cmd.colorscheme("duskfox")
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-    lazy = true,
-    config = function()
-      require("tokyonight").setup()
-      vim.cmd.colorscheme("tokyonight-moon")
-    end,
-  },
+  --{
+  --  "EdenEast/nightfox.nvim",
+  --  priority = 1000,
+  --  lazy = true,
+  --  config = function()
+  --    vim.cmd.colorscheme("duskfox")
+  --  end,
+  --},
+  --{
+  --  "folke/tokyonight.nvim",
+  --  priority = 1000,
+  --  lazy = true,
+  --  config = function()
+  --    require("tokyonight").setup()
+  --    vim.cmd.colorscheme("tokyonight-moon")
+  --  end,
+  --},
+  --{
+  --  "luisiacc/gruvbox-baby",
+  --  priority = 1000,
+  --  lazy = true,
+  --  config = function()
+  --    vim.g.gruvbox_baby_background_color = 'dark'
+  --    vim.cmd.colorscheme("gruvbox-baby")
+  --  end,
+  --},
+  --{
+  --  "marko-cerovac/material.nvim",
+  --  priorty = 1000,
+  --  lazy = true,
+  --  opts = {},
+  --},
 
   -- Other UI stuff
   {
