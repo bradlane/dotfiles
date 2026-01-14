@@ -1,14 +1,10 @@
 return {
   {
-    "mason-org/mason.nvim",
-    opts = {},
-  },
-  {
     "mason-org/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "neovim/nvim-lspconfig" },
-      { "mason-org/mason.nvim" },
+      "neovim/nvim-lspconfig",
+      { "mason-org/mason.nvim", opts = {} },
     },
     lazy = false,
     config = function()
@@ -18,7 +14,6 @@ return {
       --   capabilities = vim.lsp.protocol.make_client_capabilities()
       -- })
 
-      -- require('mason').setup()
       require("mason-lspconfig").setup({
         automatic_enable = true,
         ensure_installed = {
@@ -28,8 +23,9 @@ return {
           "lua_ls",
           "marksman",
           "powershell_es",
-          "pyright",
+          --"pyright",
           "ruff",
+          "ty",
           "yamlls",
         },
       })
