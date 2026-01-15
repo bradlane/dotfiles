@@ -1,14 +1,16 @@
 # appearance
 theme = Everforest Dark Hard
 
-font-size = 14
+font-size = 16
 font-family = TX-02
 font-style = "SemiLight"
 
+window-decoration = auto
 
 # mac options
 macos-option-as-alt = true
 macos-non-native-fullscreen = false
+macos-titlebar-style = tabs
 
 # linux options
 gtk-titlebar-style = tabs
