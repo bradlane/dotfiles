@@ -1,3 +1,9 @@
+# history
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt SHARE_HISTORY
+
+# Homebrew path
 export PATH=/opt/homebrew/bin:$PATH
 
 # Setup fzf binds & fuzzy completion
@@ -24,3 +30,8 @@ fpath=(/Users/blane/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/blane/.lmstudio/bin"
+# End of LM Studio CLI section
+
