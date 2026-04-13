@@ -1,0 +1,37 @@
+vim.pack.add({
+  {
+    src = "https://github.com/nvim-treesitter/nvim-treesitter",
+    version = "main",
+  },
+})
+
+require("nvim-treesitter").install({
+  "bash",
+  "diff",
+  "dockerfile",
+  "git_config",
+  "git_rebase",
+  "gitattributes",
+  "gitignore",
+  "hcl",
+  "helm",
+  "html",
+  "ini",
+  "jq",
+  "json",
+  "lua",
+  "nginx",
+  "markdown",
+  "markdown_inline",
+  "powershell",
+  "python",
+  "requirements",
+  "regex",
+  "sql",
+  "ssh_config",
+  "terraform",
+  "toml",
+  "vimdoc",
+  "xml",
+  "yaml",
+})
