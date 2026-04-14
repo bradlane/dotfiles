@@ -28,3 +28,6 @@ require("plugins.lsp")
 
 -- Code Formatting
 require("plugins.formatting")
+
+-- Code Completion
+require("plugins.completion")
