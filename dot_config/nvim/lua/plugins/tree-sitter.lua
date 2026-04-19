@@ -1,10 +1,9 @@
 vim.pack.add({
-  {
-    src = "https://github.com/nvim-treesitter/nvim-treesitter",
-    version = "main",
-  },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 })
 
+-- Tree-sitter parsers to always install
 require("nvim-treesitter").install({
   "bash",
   "diff",
@@ -14,8 +13,6 @@ require("nvim-treesitter").install({
   "gitattributes",
   "gitignore",
   "hcl",
-  "helm",
-  "html",
   "ini",
   "jq",
   "json",
@@ -29,9 +26,19 @@ require("nvim-treesitter").install({
   "regex",
   "sql",
   "ssh_config",
-  "terraform",
   "toml",
-  "vimdoc",
   "xml",
   "yaml",
+})
+
+-- equivalent to :TSUpdate
+require("nvim-treesitter.install").update("all")
+
+require("nvim-treesitter.config").setup({
+  auto_install = true, -- autoinstall languages that are not installed yet
+})
+
+require("treesitter-context").setup({
+  enable = true,
+  mode = "cursor",
 })

@@ -1,30 +1,21 @@
-vim.pack.add({ "https://github.com/saghen/blink.cmp" }, { confirm = false })
+vim.pack.add({
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1"), confirm = false },
+})
 
 require("blink.cmp").setup({
+  keymap = { preset = "super-tab" },
+  appearance = {
+    nerd_font_variant = "mono",
+    use_nvim_cmp_as_default = true,
+  },
   completion = {
-    documentation = {
-      auto_show = true,
-    },
+    documentation = { auto_show = false },
   },
-  -- default blink keymaps
-  keymap = {
-    ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
-    ["<C-n>"] = { "select_next", "fallback_to_mappings" },
-
-    ["<C-y>"] = { "select_and_accept", "fallback" },
-    ["<C-e>"] = { "cancel", "fallback" },
-    ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-
-    ["<Tab>"] = { "snippet_forward", "fallback" },
-    ["<S-Tab>"] = { "snippet_backward", "fallback" },
-
-    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
-    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-
-    ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
   },
-
   fuzzy = {
-    implementation = "lua",
+    implementation = "prefer_rust_with_warning",
+    --prebuilt_binaries = { force_version = "v1.10.2" },
   },
 })

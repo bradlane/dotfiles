@@ -1,13 +1,21 @@
 vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 
 require("snacks").setup({
-  indent = { enabled = true },
+  indent = {
+    enabled = true,
+    animate = { enabled = false },
+    -- chunk = { enabled = true },
+    scope = {
+      treesitter = { enabled = true },
+    },
+  },
   input = {
     enabled = true,
   },
   picker = {
     enabled = true,
   },
+  -- scope = { enabled = true },
   statuscolumn = { enabled = true },
 })
 
@@ -23,8 +31,9 @@ Map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "recent" 
 Map("n", "<leader>fw", function() Snacks.picker.grep() end, { desc = "word/grep" })
 
 -- LSP
-Map("n", "<leader>cl", function() Snacks.picker.lsp_config() end, { desc = "lsp config" })
-Map("n", "<leader>cd", function() Snacks.picker.lsp_definitions() end, { desc = "lsp definitions" })
-Map("n", "<leader>ci", function() Snacks.picker.lsp_implementations() end, { desc = "lsp implementations" })
-Map("n", "<leader>cR", function() Snacks.picker.lsp_references() end, { desc = "lsp references" })
-Map("n", "<leader>cs", function() Snacks.picker.lsp_symbols() end, { desc = "lsp symbols" })
+Map("n", "<leader>cl", function() Snacks.picker.lsp_config() end, { desc = "LSP Config" })
+Map("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Go to definition (LSP)" })
+Map("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Go to Declaration (LSP)" })
+Map("n", "gi", function() Snacks.picker.lsp_implementations() end, { desc = "Go to implementations (LSP)" })
+Map("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "References (LSP)" })
+--Map("n", "<leader>cs", function() Snacks.picker.lsp_symbols() end, { desc = "lsp symbols" })
