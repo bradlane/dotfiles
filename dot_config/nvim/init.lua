@@ -4,30 +4,15 @@ vim.g.mapleader = " "
 require("functions")
 
 -- Import options.lua
-require("options")
+require("config.options")
 
 -- Import keymaps from keymaps.lua
-require("keymaps")
+require("config.keymaps")
 
--- mini.nvim
-require("plugins.mini")
+-- Filetype associations
+require("config.filetypes")
 
--- snacks
-require("plugins.snacks")
+-- lazy.nvim plugin manager & plugins dir
+require("config.lazy")
 
--- UI
-require("plugins.colors")
-require("plugins.which-key")
-require("plugins.lualine")
-
--- Tree-sitter
-require("plugins.tree-sitter")
-
--- LSP
-require("plugins.lsp")
-
--- Code Formatting
-require("plugins.formatting")
-
--- Code Completion
-require("plugins.completion")
+require("config.ui2")

@@ -1,9 +1,10 @@
+
 # appearance
 theme = Everforest Dark Hard
 
-font-size = 16
-font-family = TX-02
-font-style = "SemiLight"
+font-size = 18
+#font-family = "FiraCode Nerd Font Mono"
+font-family = "TX-02"
 
 window-decoration = auto
 
@@ -20,21 +21,21 @@ copy-on-select = true
 
 window-width = 115
 window-height = 45
-window-padding-x = 0
-window-padding-y = 0
-#window-padding-balance = true
+
+window-padding-balance = true
 #window-padding-color = extend
+window-padding-y = 0,4
 
 shell-integration = zsh
 
 # tmux approximations
 keybind = ctrl+b>x=close_surface
 # panes
-keybind = ctrl+b>%=new_split:right
-keybind = ctrl+b>|=new_split:right
-#keybind = ctrl+b>quote=new_split:down
-#keybind = ctrl+b>_=new_split:down
-keybind = ctrl+b>-=new_split:up
+keybind = ctrl+b>shift+five=new_split:right
+keybind = ctrl+b>shift+backslash=new_split:right
+keybind = ctrl+b>shift+quote=new_split:down
+keybind = ctrl+b>-=new_split:down
+keybind = ctrl+b>shift+-=new_split:up
 # pane navigation
 keybind = ctrl+b>h=goto_split:left
 keybind = ctrl+b>j=goto_split:bottom

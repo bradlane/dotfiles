@@ -1,31 +1,70 @@
-vim.pack.add({
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-})
-
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "basedpyright",
-    "bashls",
-    "dockerls",
-    "jsonls",
-    "lua_ls",
-    "marksman",
-    "powershell_es",
-    "ruff",
-    "sqls",
-    "stylua",
-    "yamlls",
+return {
+  {
+    "neovim/nvim-lspconfig",
+    keys = {
+      { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
+      { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+      { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+      { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
+      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+      { "K", function() return vim.lsp.buf.hover() end, desc = "Hover" },
+      { "gK", function() return vim.lsp.buf.signature_help() end, desc = "Signature Help" },
+      {
+        "<c-k>",
+        function() return vim.lsp.buf.signature_help() end,
+        mode = "i",
+        desc = "Signature Help",
+      },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "x" } },
+      { "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
+      { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
+    },
   },
-})
-
------  KEYMAPS -----
-Map("n", "K", function() vim.lsp.buf.hover() end, { desc = "LSP Hover" })
-Map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
-Map("n", "<leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
--- Map("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "prev diag" })
--- Map("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "next diag" })
--- Map("n", "<leader>dl", function() vim.diagnostic.setloclist() end, { desc = "list diagnostic" })
--- Map("n", "<leader>df", function() vim.diagnostic.open_float() end, { desc = "floating diagnostic" })
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    },
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim" },
+      { "neovim/nvim-lspconfig" },
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = {
+      "mason-org/mason-lspconfig.nvim",
+    },
+    opts = {
+      ensure_installed = {
+        "ansiblels",
+        "basedpyright",
+        "bashls",
+        "biome",
+        "dockerls",
+        "gopls",
+        "jsonls",
+        "lua_ls",
+        "marksman",
+        "powershell_es",
+        "ruff",
+        "shellcheck",
+        "shfmt",
+        "sqls",
+        "stylua",
+        "yamlls",
+        "yamlfmt",
+      },
+    },
+  },
+}

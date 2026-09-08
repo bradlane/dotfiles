@@ -1,3 +1,13 @@
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt SHARE_HISTORY
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
+# Homebrew path
 export PATH=/opt/homebrew/bin:$PATH
 
 # Setup fzf binds & fuzzy completion
@@ -13,8 +23,11 @@ then
   compinit
 fi
 
-alias ls=eza
+# bat/cat
 alias cat=bat
+export BAT_THEME="EverforestDark"
+
+alias ls=eza
 alias lg=lazygit
 alias toolbox="docker run -it --rm -w/code/ -v ~/Code:/code --dns=10.0.10.252 --dns=10.0.10.253 docker.paylocity.com/paylocity/refreshing-toolbox:latest /bin/bash"
 eval "$(starship init zsh)"
@@ -24,3 +37,4 @@ fpath=(/Users/blane/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
